@@ -1,0 +1,49 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  21.1.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile '/Users/hebeituoliangshanshangmaoyouxiangongsi/Library/Caches/Yarn/v6/npm-cookie-0.4.1-afd713fe26ebd21ba95ceb61f9a8116e50a537d1-integrity/node_modules/cookie/index.js' -> '/Users/hebeituoliangshanshangmaoyouxiangongsi/Documents/chat_room/node_modules/cookie-parser/node_modules/cookie/index.js'
+
+npm manifest: 
+  {
+    "name": "chat-room",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+      "start": "node ./bin/www"
+    },
+    "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "body-parser": "^1.20.2",
+      "cookie-parser": "~1.4.4",
+      "cors": "^2.8.5",
+      "debug": "~2.6.9",
+      "ejs": "~2.6.1",
+      "express": "~4.16.1",
+      "express-formidable": "^1.2.0",
+      "http-errors": "~1.6.3",
+      "jsonwebtoken": "^9.0.2",
+      "morgan": "~1.9.1",
+      "mysql2": "^3.6.3",
+      "sequelize": "^6.34.0",
+      "socket.io": "^4.7.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

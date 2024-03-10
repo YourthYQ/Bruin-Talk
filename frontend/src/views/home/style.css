@@ -1,0 +1,139 @@
+.Home {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  background-image: url("./bg.jpg");
+  position: relative;
+}
+aside {
+  background: linear-gradient(
+    to bottom,
+    rgba(207, 222, 229, 0.95),
+    rgba(205, 216, 218, 0.35)
+  );
+  border-radius: 10px;
+  height: calc(100vh - 200px);
+}
+aside .ant-list-item {
+  padding: 10px !important;
+  cursor: pointer;
+}
+aside .ant-list-item:hover {
+  background-color: #aaaaaa;
+}
+aside .active {
+  background-color: #aaaaaa;
+}
+:where(.css-dev-only-do-not-override-1adbn6x).ant-list
+  .ant-list-item
+  .ant-list-item-meta {
+  align-items: center !important;
+}
+.msg_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(
+    to bottom,
+    rgba(207, 222, 229, 0.95),
+    rgba(205, 216, 218, 0.35)
+  );
+  border-radius: 10px;
+  padding: 10px !important;
+  height: calc(100vh - 200px);
+}
+.msg_list .msgBox {
+  width: 100%;
+  height: calc(100% - 85px);
+  border-radius: 10px;
+  padding: 10px !important;
+  padding-top: 0px !important;
+  overflow-y: scroll;
+  position: relative;
+}
+:where(.css-dev-only-do-not-override-1adbn6x).ant-list-lg .ant-list-item {
+  padding: 16px 0 !important;
+}
+.msg_list .msgBox .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  z-index: 99;
+  padding-top: 10px !important;
+}
+.msg_list .msgBox .msgx {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+.msg_list .msgBox .msgxt .ant-avatar {
+  margin-right: 5px;
+}
+.msg_list .msgBox .msgxy .ant-avatar {
+  margin-left: 5px;
+}
+
+.msg_list .msgBox .msgx .msgTime {
+  position: absolute;
+  bottom: -20px;
+  font-size: 13px;
+  color: #999;
+}
+.msg_list .msgBox .msgxt .msgTime {
+  left: 5px;
+}
+.msg_list .msgBox .msgxy {
+  justify-content: end;
+}
+.msg_list .msgBox .msgxy .msgTime {
+  right: 5px !important;
+}
+
+.msg_list .msgBox .msgx .msgName {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 90%;
+  font-size: 15px;
+}
+.msg_list .msgBox .msgxy .msgName {
+  background: #78d568 !important;
+}
+.msgSend {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.msgSend input {
+  width: 88%;
+  height: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  padding: 0 10px;
+}
+.msgSend input:focus {
+  border: 1px solid #ffffff;
+}
+.msgSend button {
+  border-radius: 10px;
+  width: 10%;
+  height: 100%;
+  background-color: #468bf2;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#ucla-logo {
+  width: 20%;
+}

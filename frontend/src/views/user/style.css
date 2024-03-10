@@ -1,0 +1,63 @@
+.containerLogin {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+.containerLogin .box {
+  width: 390px;
+  padding: 45px;
+  border-radius: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.containerLogin .box h1 {
+  text-align: left;
+  margin-bottom: 40px;
+}
+.z_btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  background: #5ab0ff;
+  color: #fff;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#bruin-logo {
+  width: 10%;
+}
+
+.top-right-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 20px;
+}
+
+.circle-button {
+  border: none;
+  outline: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-button img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}

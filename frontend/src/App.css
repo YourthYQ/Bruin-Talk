@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+.EmojiPickerReact{font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "Apple Color Emoji", "Twemoji Mozilla", "Noto Color Emoji", "Android Emoji", -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif!important ;}
+html,body,#root{
+  width: 100vw;
+  height: 100vh;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+*{
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+}
