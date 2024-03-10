@@ -1,6 +1,8 @@
 # <img src="./bruin-image.png" width=30px height=35px>  Bruin Talk
 *Bruin Talk* is a **MERN** Stack full-stack web chatting application. This application focuses on creating a dynamic and interactive user experience by implementing core functionalities such as user authentication, real-time chatting, and a meaningful message history search. Additionally, the application introduces five features: Customizing user-page theme, Displaying a friend list, Adding friends, Deleting friends, and Displaying online/offline status.
 
+**Contributors**: <a href="https://github.com/YourthYQ">`@YourthYQ`</a>, <a href="https://github.com/realyangweng">`@realyangweng`</a>, <a href="https://github.com/Luyun12306">`@Luyun12306`</a>, <a href="https://github.com/ngorayyy">`@ngorayyy`</a>, <a href="https://github.com/fffaa7788">`@fffaa7788`</a>
+
 **Note**: It is recommended you run *Bruin Talk* either on Chrome or Firefox. Running this web app on Safari is undefined behavior.
 
 **Date**: Jan - Mar, 2024
