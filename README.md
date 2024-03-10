@@ -79,6 +79,8 @@ Open the other web browser and go to http://localhost:3000 to access the chat ap
 
 **Deleting Friends**: You can delete your current friends.
 
+**Log Out**: You want to login another account or exit the app by clicking the Logout button.
+
 ## Demo
 
 Demo
