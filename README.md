@@ -47,7 +47,7 @@
 
 	Clone the Repository:
 
-	git clone https://github.com/your-username/web-chat-application.git
+	git clone https://github.com/your-username/bruin-talk.git
 
 ### Running the Application
 
