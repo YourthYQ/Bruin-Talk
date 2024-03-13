@@ -1,9 +1,11 @@
 # <img src="./bruin-image.png" width=30px height=35px>  Bruin Talk
-*Bruin Talk* is a **MERN** Stack full-stack web chatting application. This application focuses on creating a dynamic and interactive user experience by implementing core functionalities such as user authentication, real-time chatting, and a meaningful message history search. Additionally, the application introduces five features: Customizing user-page theme, Displaying a friend list, Adding friends, Deleting friends, and Displaying online/offline status.
+*Bruin Talk* is a full-stack web chatting application. This application is developed using React for the frontend, Express and MySQL for the backend, and Socket.IO for managing real-time connections. Bruin Talk focuses on creating a dynamic and interactive user experience by implementing core functionalities such as user authentication, real-time chatting, and a meaningful message history search. Additionally, the application introduces five features: Customizing user-page theme, Displaying a friend list, Adding friends, Deleting friends, and Displaying online/offline status.
 
-**Contributors**: <a href="https://github.com/YourthYQ">`@YourthYQ`</a>, <a href="https://github.com/realyangweng">`@realyangweng`</a>, <a href="https://github.com/Luyun12306">`@Luyun12306`</a>, <a href="https://github.com/ngorayyy">`@ngorayyy`</a>, <a href="https://github.com/fffaa7788">`@fffaa7788`</a>
+**Contributors**: Yang Weng <a href="https://github.com/realyangweng">`@realyangweng`</a>, Luyun Hou <a href="https://github.com/Luyun12306">`@Luyun12306`</a>, Yuquan Hong <a href="https://github.com/YourthYQ">`@YourthYQ`</a>, Yi Wu <a href="https://github.com/ngorayyy">`@ngorayyy`</a>, Jeffirey Wang <a href="https://github.com/fffaa7788">`@fffaa7788`</a>
 
-**Note**: It is recommended you run *Bruin Talk* either on Chrome or Firefox. Running this web app on Safari is undefined behavior.
+**Note 1**: It is recommended you run *Bruin Talk* either on Chrome or Firefox. Running this web app on Safari is undefined behavior.
+
+**Note 2**: Owing to the constraints associated with state updating mechanisms in React, our application presently requires users to manually refresh the page to view new messages sent by others.  We are committed to refining this functionality, ensuring that React will seamlessly and automatically re-render the interface to display new messages upon receipt, enhancing user experience and application responsiveness.
 
 **Date**: Jan - Mar, 2024
 
@@ -13,13 +15,11 @@
 - [Five Distinct Features](#five-distinct-features)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
   - [Running the Application](#running-the-application)
+  - [Manual Operation](#manual-operation)
 - [Usage](#usage)
 - [Demo](#demo)
-- [Contributing](#contributing)
 - [License](#license)
-
 
 ## Three Basic Features
 
@@ -47,17 +47,42 @@
 
 	Clone the Repository:
 
-	git clone https://github.com/your-username/bruin-talk.git
+	git clone https://github.com/realyangweng/35L-Project.git
 
 ### Running the Application
 
 To start the application, simply execute the command:
+
+ 	cd path/to/this/repository
 
 	make run
 
 Open one web browser and go to http://localhost:3000 to access the chat application.
 
 Open the other web browser and go to http://localhost:3000 to access the chat application.
+
+### Manual Operation
+
+This application requires `npm` to get started, and they are integrated into 
+`make run` above. However, there are also some options to do manually just in case:
+
+To install `npm`:
+
+	make install_npm
+
+ Or:
+
+  	make check_npm
+
+where the latter would check if `npm` is installed, and install it for you if not
+
+To install packages for app to run:
+
+	make install_package
+
+ To clean processes occupying ports:
+
+ 	make close
 
 ## Usage
 
@@ -83,10 +108,7 @@ Open the other web browser and go to http://localhost:3000 to access the chat ap
 
 ## Demo
 
-Demo
-
-## Contributing
-
+For a demonstration of the project, please visit <a href="https://www.youtube.com/watch?v=a8Cp1spRwHQ">here</a>.
 
 ## License
 
