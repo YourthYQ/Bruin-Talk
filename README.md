@@ -51,7 +51,7 @@
 
 	Clone the Repository:
 
-	git clone https://github.com/realyangweng/35L-Project.git
+	git clone https://github.com/YourthYQ/Bruin-Talk.git
 
 ### Install Dependencies
 
