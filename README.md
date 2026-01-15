@@ -1,15 +1,11 @@
 # <img src="./bruin-image.png" width=30px height=35px>  Bruin Talk
 *Bruin Talk* is a full-stack web chatting application. This application is developed using React for the frontend, Express and MySQL for the backend, and Socket.IO for managing real-time connections. Bruin Talk focuses on creating a dynamic and interactive user experience by implementing core functionalities such as user authentication, real-time chatting, and a meaningful message history search. Additionally, the application introduces five features: Customizing user-page theme, Displaying a friend list, Adding friends, Deleting friends, and Displaying online/offline status.
 
-**Contributors**: Yang Weng <a href="https://github.com/realyangweng">`@realyangweng`</a>, Luyun Hou <a href="https://github.com/Luyun12306">`@Luyun12306`</a>, Yuquan Hong <a href="https://github.com/YourthYQ">`@YourthYQ`</a>, Yi Wu <a href="https://github.com/ngorayyy">`@ngorayyy`</a>, Jeffirey Wang <a href="https://github.com/fffaa7788">`@fffaa7788`</a>
-
 **Note 1**: It is recommended you run *Bruin Talk* either on Chrome or Firefox. Running this web app on Safari is undefined behavior.
 
 **Note 2**: Owing to the constraints associated with state updating mechanisms in React, our application presently requires users to manually refresh the page to view new messages sent by others.  We are committed to refining this functionality, ensuring that React will seamlessly and automatically re-render the interface to display new messages upon receipt, enhancing user experience and application responsiveness.
 
 **Date**: Jan - Mar, 2024
-
-**Link**: Link to this public repo: https://github.com/realyangweng/35L-Project
 
 ## Table of Contents
 
