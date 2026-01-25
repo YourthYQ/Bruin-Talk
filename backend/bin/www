@@ -21,9 +21,9 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
-// 集成 Socket.IO 到 Express 应用
-var io = require('socket.io')(server, { cors: true });
-io.listen(4001)
+var corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
+var io = require('socket.io')(server, { cors: { origin: corsOrigin } });
+io.listen(4001);
 
 // io.on('connect', client => { // client 即是连接上来的一个客户端
 //   console.log(client.id) // id 是区分客户端的唯一标识

@@ -7,7 +7,7 @@ cd ./backend || { echo "Error: Backend folder ("backend") not found!"; exit 1; }
 npm start &
 
 # Check if successfully ran back-end
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
     echo "Error: Failed to start back end!"
     exit 1
 fi
@@ -20,7 +20,7 @@ cd ../frontend ||
 npm start
 
 # Check if successfully ran front-end
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
     echo "Error: Failed to start front end!"
     exit 1
 fi

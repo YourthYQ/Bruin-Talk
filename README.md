@@ -1,152 +1,181 @@
-# <img src="./bruin-image.png" width=30px height=35px>  Bruin Talk
-*Bruin Talk* is a full-stack web chatting application. This application is developed using React for the frontend, Express and MySQL for the backend, and Socket.IO for managing real-time connections. Bruin Talk focuses on creating a dynamic and interactive user experience by implementing core functionalities such as user authentication, real-time chatting, and a meaningful message history search. Additionally, the application introduces five features: Customizing user-page theme, Displaying a friend list, Adding friends, Deleting friends, and Displaying online/offline status.
+# <img src="./bruin-image.png" width=30px height=35px> Bruin Talk
 
-**Note 1**: It is recommended you run *Bruin Talk* either on Chrome or Firefox. Running this web app on Safari is undefined behavior.
+**Bruin Talk** is a full-stack, real-time web chat application—similar in scope to a lightweight Slack or Discord—built from scratch to demonstrate end-to-end software engineering: frontend, REST + WebSockets, relational database, auth, and deployment-ready configuration.
 
-**Note 2**: Owing to the constraints associated with state updating mechanisms in React, our application presently requires users to manually refresh the page to view new messages sent by others.  We are committed to refining this functionality, ensuring that React will seamlessly and automatically re-render the interface to display new messages upon receipt, enhancing user experience and application responsiveness.
+Users can register, log in, add and remove friends, and send instant messages. Chat history is stored and searchable. The app supports light/dark theme and shows friends’ online/offline status. Friend requests use an approve/deny flow. All of this runs in the browser with no page refresh for new messages.
 
-**Date**: Jan - Mar, 2024
+- **Full-stack**: React (client) + Express (API) + MySQL (via Sequelize). Clear separation of routes, services, and data access.
+- **Real-time**: Socket.IO for live messaging and presence; no polling.
+- **Auth & security**: JWT-based auth, bcrypt for passwords, env-based config (no secrets in repo), and constrained CORS.
+- **Production habits**: Environment variables for DB and secrets, `.env.example` for onboarding, and a Makefile/scripts to run and deps.
+
+**Run locally**: `make run` then open `http://localhost:3000` (see [Getting Started](#getting-started)).
+
+> Best on Chrome or Firefox. Safari may behave inconsistently. — *Jan–Mar 2024*
+
+---
 
 ## Table of Contents
 
-- [Three Basic Features](#three-basic-features)
-- [Five Distinct Features](#five-distinct-features)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Install Dependencies](#install-dependencies)
-  - [MySQL Database Localization](#mySQL-database-localization)
+  - [MySQL Database](#mysql-database)
+  - [Environment Variables](#environment-variables)
   - [Running the Application](#running-the-application)
-  - [Manual Operation](#manual-operation)
+  - [Manual Commands](#manual-commands)
 - [Usage](#usage)
 - [Demo](#demo)
 - [License](#license)
 
-## Three Basic Features
+---
 
-**Real-Time Chat**: Develop a chat system to facilitate real-time communication and enhance user engagement.
+## Features
 
-**Message History**: Integrate a powerful search functionality allowing users to efficiently retrieve and review their chat history. 
+**Core**
 
-**User Authentication**: Implement a secure registration and login system to ensure the privacy and authentication of user data.
+- **Real-time chat** — Instant messaging via Socket.IO
+- **Message history** — Load and search chat history
+- **User authentication** — Registration and login with JWT; passwords hashed with bcrypt
 
-## Five Distinct Features
+**Additional**
 
-**1. Customizing User-page Theme**: Provide a theme customization feature for the User Login and Register Page, including alternation between Light Mode and Dark Mode.
+1. **Theme** — Light / Dark mode on Login and Register pages  
+2. **Friend list** — View contacts  
+3. **Add friends** — Search users and send requests (with approve/deny)  
+4. **Delete friends** — Remove friends from the list  
+5. **Online/offline status** — Show status in the friend list  
 
-**2. Displaying a friend list**
+---
 
-**3. Adding Friends**
+## Tech Stack
 
-**4. Deleting Friends**
+| Layer      | Technologies                          |
+|-----------|----------------------------------------|
+| Frontend  | React, React Router, Ant Design, Socket.IO Client, Axios |
+| Backend   | Express, Sequelize, MySQL2, Socket.IO, JWT, bcryptjs |
+| Real-time | Socket.IO (port 4001)                  |
 
-**5. Displaying online/offline status of users**
+**Ports**
+
+- Frontend (React): `http://localhost:3000`
+- Backend (Express): `http://localhost:3001`
+- Socket.IO: `http://localhost:4001`
+
+---
 
 ## Getting Started
 
 ### Prerequisites
 
-	Clone the Repository:
-
-	git clone https://github.com/YourthYQ/Bruin-Talk.git
+- **Node.js** — [https://nodejs.org](https://nodejs.org)
+- **MySQL** — [https://www.mysql.com/downloads](https://www.mysql.com/downloads)
 
 ### Install Dependencies
 
-Windows or Mac: Download from the official Node.js website and install it: 
+```bash
+git clone https://github.com/YourthYQ/Bruin-Talk.git
+cd Bruin-Talk
+make install_package
+```
 
-	https://nodejs.org/en
-	
-### MySQL Database Localization
+(or run `make run` once; it will install packages if needed)
 
-Visit the official MySQL downloads page and select the version suitable for your operating system:
+### MySQL Database
 
-	https://www.mysql.com/downloads/
- 
-After installation, you can access the MySQL CLI by typing 
+1. Start MySQL and open the CLI:
 
-	mysql -u root -p 
- 
-in your terminal or command prompt and entering the root password set during installation.
-To create a new database, you can use the SQL command: 
+   ```bash
+   mysql -u root -p
+   ```
 
-	CREATE DATABASE mydatabase; — replacing mydatabase with your preferred database name.
+2. Create a database:
 
-The default connection details for a local MySQL setup are usually:
+   ```sql
+   CREATE DATABASE chatroom;
+   ```
 
-	Host: localhost or 127.0.0.1
- 	Port: 3306 (default MySQL port)
-  	User: root (or any other user you create for the database)
-   	Password: The password set during installation or for the new user you created.
-    Database: The name of the database you created (e.g., mydatabase).
+3. (Optional) Create a dedicated user and grant privileges.
 
-Configure the App to Use the Local Database. Locate 
+### Environment Variables
 
-	chat_room/config/index.js 
- 
-and update the host, port, user, password, and database name values to match your local MySQL setup.
+Secrets and connection settings are read from environment variables. **Do not commit `.env` or real credentials.**
 
-After adjusting the configuration, you should be able to run the app locally. 
+**Backend** (`backend/`)
+
+1. Copy the example file:
+
+   ```bash
+   cp backend/.env.example backend/.env
+   ```
+
+2. Edit `backend/.env`:
+
+   ```env
+   MYSQL_HOST=localhost
+   MYSQL_PORT=3306
+   MYSQL_USER=root
+   MYSQL_PASSWORD=your_mysql_password
+   MYSQL_DATABASE=chatroom
+   JWT_SECRET=your_jwt_secret_at_least_32_characters_long
+   PORT=3001
+   CORS_ORIGIN=http://localhost:3000
+   ```
+
+**Frontend** (`frontend/`)
+
+1. Copy the example file:
+
+   ```bash
+   cp frontend/.env.example frontend/.env
+   ```
+
+2. Edit if needed (defaults are fine for local dev):
+
+   ```env
+   REACT_APP_SERVER_URL=http://localhost:3001/
+   REACT_APP_SOCKET_URL=http://localhost:4001
+   ```
 
 ### Running the Application
 
-To start the application, simply execute the command:
+```bash
+cd path/to/Bruin-Talk
+make run
+```
 
- 	cd path/to/this/repository
+This starts the backend (Express + Socket.IO) and then the frontend (React).
 
-	make run
+- Open **http://localhost:3000** in your browser to use the app.
+- Open the same URL in another browser or incognito window to test with a second user.
 
-Open one web browser and go to http://localhost:3000 to access the chat application.
+### Manual Commands
 
-Open the other web browser and go to http://localhost:3000 to access the chat application.
+| Command            | Description                          |
+|--------------------|--------------------------------------|
+| `make install_npm` | Install Node/npm (if missing)        |
+| `make check_npm`   | Check npm and install if needed      |
+| `make install_package` | Install backend and frontend deps |
+| `make close`       | Stop processes on 3000, 3001, 3306, 4001 |
 
-### Manual Operation
-
-This application requires `npm` to get started, and they are integrated into 
-`make run` above. However, there are also some options to do manually just in case:
-
-To install `npm`:
-
-	make install_npm
-
- Or:
-
-  	make check_npm
-
-where the latter would check if `npm` is installed, and install it for you if not
-
-To install packages for app to run:
-
-	make install_package
-
- To clean processes occupying ports:
-
- 	make close
+---
 
 ## Usage
 
-**Customizing User-page Theme**: At the User Login and Register Page, you can customize the page's theme to improve your visual experience.
+- **Theme** — Use the sun/moon button on Login or Register to switch Light/Dark.
+- **Register** — Create an account on the Register page.
+- **Log in** — Sign in with username and password.
+- **Add friends** — Search by username in the sidebar and send a friend request; approve or deny via “Friend Request” in the header.
+- **Chat** — Select a friend in the list to open the conversation; type and click Send. Messages and history load in real time.
+- **Message history** — Use “Search Message History” in the chat area to search by keyword.
+- **Friend list** — See all friends and their online/offline status in the sidebar.
+- **Delete friend** — Use “Delete Friend” in the chat header (with confirmation).
+- **Log out** — Click Logout in the header.
 
-**Register**: If you do not have an account yet, you can register for an account.
-
-**Log In**: Once you got an account, you can log in with your username and password.
-
-**Adding Friends**: After you log in, you can add other users as your friends.
-
-**Real-Time Chat**: Click on the users you want to chat with, and start chatting with them. Messages are sent and received in real-time.
-
-**Message History**: Your chat history will be available for reference, and you can scroll through previous messages.
-
-**Friend List**: You can check your contacts in the friend list.
-
-**Online/Offline Status**: In your friend list, you can also check friends' Online/Offline Statue.
-
-**Deleting Friends**: You can delete your current friends.
-
-**Log Out**: You want to login another account or exit the app by clicking the Logout button.
-
-## Demo
-
-For a demonstration of the project, please visit <a href="https://www.youtube.com/watch?v=a8Cp1spRwHQ">here</a>.
+---
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License — see the LICENSE file for details.

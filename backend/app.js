@@ -1,30 +1,33 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-const formidable = require('express-formidable') // 引入
+const formidable = require('express-formidable');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var msgRouter = require('./routes/msg');
-const cors = require('cors')
+const cors = require('cors');
 
 var app = express();
-app.all('*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  next();
-});
+
+// CORS: allow frontend origin only (no wildcard in production)
+const corsOrigin = process.env.CORS_ORIGIN || 'http://localhost:3000';
+app.use(cors({
+  origin: corsOrigin,
+  methods: ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+}));
+app.options('*', cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(cors());
 
 app.use(bodyParser.json());
-app.options(cors());
 app.use(formidable());
 app.use(logger('dev'));
 app.use(express.json());

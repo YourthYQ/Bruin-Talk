@@ -5,13 +5,16 @@ const instance = axios.create({
   timeout: 10000, // 设置请求超时时间
 });
 
-// 拦截请求，设置请求头等信息
 instance.interceptors.request.use(
   (config) => {
-    // 在这里添加请求头
-    config.headers['Content-Type'] = 'multipart/form-data';
-    config.headers['authorization'] = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')).authorization || '' : '';
-    // 可以添加其他请求头或修改配置
+    config.headers['Content-Type'] = 'application/json';
+    const user = window.localStorage.getItem('user');
+    if (user) {
+      try {
+        const { authorization } = JSON.parse(user);
+        if (authorization) config.headers['Authorization'] = authorization;
+      } catch (_) {}
+    }
     return config;
   },
   (error) => {

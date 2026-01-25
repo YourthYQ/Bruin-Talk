@@ -17,8 +17,8 @@ function App() {
       if (localStorage.getItem('user')) {
         setChatData({...chatData, user: JSON.parse(localStorage.getItem('user'))});
       }
-        const socket_ = io("http://localhost:4001");
-        // 在连接建立后执行的操作
+        const socketUrl = process.env.REACT_APP_SOCKET_URL || "http://localhost:4001";
+        const socket_ = io(socketUrl);
         socket_.on("connect", () => {
           // setChatData({...chatData, user: JSON.parse(localStorage.getItem('user'))});
           if (window.localStorage.getItem("user")) {
@@ -46,9 +46,7 @@ function App() {
       console.log(error);
     }
     return () => {
-      // 断开连接时清理
-      socket.disconnect();
-      // window.localStorage.clear()
+      if (socket_) socket_.disconnect();
     };
   }, []);
 

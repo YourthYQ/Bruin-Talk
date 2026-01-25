@@ -55,11 +55,9 @@ module.exports = {
       };
     }
     const authorization = jwt.sign(
-      { id: user.id, username: user.username, password: user.password },
+      { id: user.id, username: user.username },
       config.jwtc.jwtSecret,
-      {
-        expiresIn: 60 * 60 * 24 * 1,
-      }
+      { expiresIn: 60 * 60 * 24 }
     );
     return {
       code: 0,
@@ -108,9 +106,7 @@ module.exports = {
   async userList() {
     let result = await UserModel.findAndCountAll({
       order: [["id", "asc"]],
-      where: {
-        [Op.status]: 1,
-      },
+      where: { status: '1' },
     });
     if (!result) {
       return {

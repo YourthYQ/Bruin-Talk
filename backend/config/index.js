@@ -1,14 +1,15 @@
-// 链接数据库
+// Load from environment variables. Copy .env.example to .env and set values.
+// Never commit .env or real secrets to git.
 module.exports.config = {
-    mysql: {
-        host: '123.56.26.168',
-        port: 3306,
-        user: 'chatRoom',
-        password: '8MiyePPYASfRNsKG',
-        database: 'chatroom'
-    },
-    jwtc:{
-        sessionSecret: "abcdefghigklmnABCDEFGHIGKLMN1234567890",
-        jwtSecret: "abcdefghigklmnABCDEFGHIGKLMN1234567890"
-    }
-}
+  mysql: {
+    host: process.env.MYSQL_HOST || 'localhost',
+    port: parseInt(process.env.MYSQL_PORT, 10) || 3306,
+    user: process.env.MYSQL_USER || 'root',
+    password: process.env.MYSQL_PASSWORD || '',
+    database: process.env.MYSQL_DATABASE || 'chatroom',
+  },
+  jwtc: {
+    sessionSecret: process.env.JWT_SECRET || 'dev-secret-do-not-use-in-production',
+    jwtSecret: process.env.JWT_SECRET || 'dev-secret-do-not-use-in-production',
+  },
+};
